@@ -65,6 +65,8 @@ public class TemaController {
 
 	}
 
+	
+	
 	// atualizar
 	@PutMapping
 	public ResponseEntity<Tema> putTema(@Valid @RequestBody Tema tema) {
@@ -91,10 +93,13 @@ public class TemaController {
 		
 		temaRepository.deleteById(id);
 		
-		
-		
 	}
 
+	
+	
+	
+	
+	
 }
 
 	
