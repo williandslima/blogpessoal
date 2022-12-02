@@ -44,18 +44,21 @@ public class Postagem {
 	@Size(min = 10, max = 1000, message = "O Atributo titulo deve conter no minimo 10 e no maximo 1000")
 	private String texto;
 	
-	
 	@UpdateTimestamp // data set
 	private LocalDateTime data;
 	//
 	
 	
 	@ManyToOne
-	@JsonIgnoreProperties("postagem")
 	@NotNull (message = "Colocar o id do TEMA - Não pode ficar sem tema !!!")
+	@JsonIgnoreProperties("postagem")
 	//@NotBlank (message = "Nao pode ficar em branco")
 	private Tema tema;
 	
+	
+	@ManyToOne
+	@JsonIgnoreProperties("postagem")
+	private Usuario usuario;
 	
 	///criar atributo do tema @manytoone
 	
@@ -63,6 +66,14 @@ public class Postagem {
 	
 	// get and sets
 	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
 	public Tema getTema() {
 		return tema;
 	}
