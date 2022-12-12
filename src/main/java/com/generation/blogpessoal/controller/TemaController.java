@@ -50,7 +50,7 @@ public class TemaController {
 	}
 	
 
-	@GetMapping("/descricao/{descricao}")
+	@GetMapping("/{descricao}")
 	public ResponseEntity<List<Tema>> getByDescricao(@PathVariable String descricao) { // resposta HTTP
 
 		return ResponseEntity.ok(temaRepository.findAllByDescricaoContainingIgnoreCase(descricao));
@@ -59,7 +59,7 @@ public class TemaController {
 	
 
 	// postar
-	@PostMapping
+	@PostMapping("/cadastrar")
 	public ResponseEntity<Tema> postTema(@Valid @RequestBody Tema tema) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(temaRepository.save(tema));
 
@@ -68,7 +68,7 @@ public class TemaController {
 	
 	
 	// atualizar
-	@PutMapping
+	@PutMapping("/atualizar")
 	public ResponseEntity<Tema> putTema(@Valid @RequestBody Tema tema) {
 
 		
@@ -82,7 +82,7 @@ public class TemaController {
 	
 	// deletar
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/deletar/{id}")
 	public void deleteTema(@PathVariable Long id) {
 		
 		

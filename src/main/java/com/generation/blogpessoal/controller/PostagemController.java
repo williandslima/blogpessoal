@@ -65,7 +65,7 @@ public class PostagemController {
 	////checar se o tema existe
 
 	// busca pelo titulo
-	@GetMapping("/titulo/{titulo}")
+	@GetMapping("/{titulo}")
 	public ResponseEntity<List<Postagem>> getByTitulo(@PathVariable String titulo) { // resposta HTTP
 
 		return ResponseEntity.ok(postagemRepository.findAllByTituloContainingIgnoreCase(titulo));
@@ -74,7 +74,7 @@ public class PostagemController {
 	}
 
 	// postar
-	@PostMapping
+	@PostMapping("/cadastrar")
 	public ResponseEntity<Postagem> postPostagem(@Valid @RequestBody Postagem postagem) {
 		
 		if (temaRepository.existsById(postagem.getTema().getId())) //chec id do tema dentro da postagem
@@ -84,7 +84,7 @@ public class PostagemController {
 		}
 
 	// atualizar
-	@PutMapping
+	@PutMapping("/atualizar")
 	public ResponseEntity<Postagem> putPostagem(@Valid @RequestBody Postagem postagem) {
 
 		//return ResponseEntity.status(HttpStatus.OK).body(postagemRepository.save(postagem));
