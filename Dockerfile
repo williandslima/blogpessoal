@@ -3,7 +3,7 @@ FROM openjdk:17.0.1-jdk-oracle as build
 WORKDIR /workspace/app
 
 COPY mvnw .
-COPY .mvn .
+COPY .mvnw .mvnw
 COPY pom.xml .
 COPY src src
 
