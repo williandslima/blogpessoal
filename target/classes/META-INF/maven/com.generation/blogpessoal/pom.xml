@@ -52,7 +52,7 @@
 			<artifactId>mysql-connector-j</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		<!-- Dependência para Spring doc-->
+		<!-- Dependência para Spring doc usei a 11 mas as 13 funciona-->
 
 
 		<dependency>
